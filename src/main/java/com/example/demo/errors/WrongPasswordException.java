@@ -1,5 +1,11 @@
-//package com.example.demo.errors;
-//
-//public class WrongPasswordException extends RuntimeException {
-//    super
-//}
+package com.example.demo.errors;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.FORBIDDEN)
+public class WrongPasswordException extends RuntimeException {
+    public WrongPasswordException() {
+        super("Wrong password!");
+    }
+}

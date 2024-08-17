@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.demo.domain.entity;
 
 import jakarta.validation.constraints.Positive;
 import org.springframework.data.annotation.Id;

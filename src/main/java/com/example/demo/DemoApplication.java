@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.repository.UserRepository;
+import com.example.demo.domain.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +20,7 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-    
+
     }
 
 
