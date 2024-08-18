@@ -3,7 +3,7 @@ package com.example.demo.domain.service;
 import com.example.demo.domain.dto.CreateUserDto;
 import com.example.demo.domain.dto.LoginRequest;
 import com.example.demo.domain.dto.LoginResponse;
-import com.example.demo.domain.entity.User;
+import com.example.demo.domain.user.User;
 import com.example.demo.errors.UserConflictException;
 import com.example.demo.domain.user.repository.UserRepository;
 import org.apache.coyote.BadRequestException;

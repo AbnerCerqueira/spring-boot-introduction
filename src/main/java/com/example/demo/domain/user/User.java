@@ -1,6 +1,5 @@
-package com.example.demo.domain.entity;
+package com.example.demo.domain.user;
 
-import jakarta.validation.constraints.Positive;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
