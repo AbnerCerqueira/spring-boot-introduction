@@ -1,9 +1,10 @@
-    package com.example.demo.domain.service;
+    package com.example.demo.config;
 
 
     import com.example.demo.domain.user.UserAuthenticated;
-    import com.example.demo.domain.user.repository.UserRepository;
-    import org.springframework.security.core.userdetails.UserDetails;
+import com.example.demo.domain.user.UserRepository;
+
+import org.springframework.security.core.userdetails.UserDetails;
     import org.springframework.security.core.userdetails.UserDetailsService;
     import org.springframework.security.core.userdetails.UsernameNotFoundException;
     import org.springframework.stereotype.Service;

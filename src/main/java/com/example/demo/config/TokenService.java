@@ -1,4 +1,4 @@
-package com.example.demo.domain.service;
+package com.example.demo.config;
 
 import com.example.demo.domain.dto.SubTokenDto;
 import com.example.demo.domain.dto.LoginRequest;

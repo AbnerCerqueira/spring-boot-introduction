@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.domain.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,10 +11,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class DemoApplication implements CommandLineRunner {
 
-    @Autowired
-    UserRepository userRepository;
+    private static final Logger LOG = LoggerFactory.getLogger(DemoApplication.class);
 
     public static void main(String[] args) {
+        LOG.info("teste");
         SpringApplication.run(DemoApplication.class, args);
     }
 
@@ -22,6 +22,5 @@ public class DemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
     }
-
 
 }

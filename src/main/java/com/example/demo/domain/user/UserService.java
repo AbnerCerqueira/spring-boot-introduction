@@ -1,11 +1,11 @@
-package com.example.demo.domain.service;
+package com.example.demo.domain.user;
 
+import com.example.demo.config.TokenService;
 import com.example.demo.domain.dto.CreateUserDto;
 import com.example.demo.domain.dto.LoginRequest;
 import com.example.demo.domain.dto.LoginResponse;
-import com.example.demo.domain.user.User;
 import com.example.demo.errors.UserConflictException;
-import com.example.demo.domain.user.repository.UserRepository;
+
 import org.apache.coyote.BadRequestException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -31,6 +31,10 @@ public class UserService {
     public User create(CreateUserDto createUserDto) throws Exception {
         if (createUserDto.username().trim().isEmpty() | createUserDto.password().trim().isEmpty()) {
             throw new BadRequestException("Empty fields!");
+        }
+
+        if (createUserDto.username().contains(" ") || createUserDto.password().contains(" ")) {
+            throw new BadRequestException("The username or passowrd can not contain blank spaces");
         }
 
         var isConflict = userRepository.findByUsername(createUserDto.username());
