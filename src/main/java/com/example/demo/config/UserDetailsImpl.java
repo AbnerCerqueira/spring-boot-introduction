@@ -1,8 +1,8 @@
     package com.example.demo.config;
 
 
-    import com.example.demo.domain.user.UserAuthenticated;
-import com.example.demo.domain.user.UserRepository;
+    import com.example.demo.models.user.UserAuthenticated;
+import com.example.demo.models.user.UserRepository;
 
 import org.springframework.security.core.userdetails.UserDetails;
     import org.springframework.security.core.userdetails.UserDetailsService;

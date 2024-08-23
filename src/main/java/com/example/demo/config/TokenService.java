@@ -1,8 +1,7 @@
 package com.example.demo.config;
 
-import com.example.demo.domain.dto.SubTokenDto;
-import com.example.demo.domain.dto.LoginRequest;
-import com.example.demo.domain.dto.LoginResponse;
+import com.example.demo.models.dtos.SubTokenDto;
+import com.example.demo.models.dtos.LoginResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.stereotype.Service;
@@ -23,10 +22,10 @@ public class TokenService {
         this.objectMapper = objectMapper;
     }
 
-    public LoginResponse generateToken(LoginRequest loginRequest, String id) {
+    public LoginResponse generateToken(String username, String id) {
         String sub;
         try {
-            sub = objectMapper.writeValueAsString(new SubTokenDto(id, loginRequest.username()));
+            sub = objectMapper.writeValueAsString(new SubTokenDto(id, username));
         } catch (Exception e) {
             throw new RuntimeException("Error serializing token!");
         }
