@@ -1,5 +1,6 @@
 package com.example.demo.api.controller;
 
+import com.example.demo.models.dtos.CreateUserDto;
 import com.example.demo.models.dtos.LoginRequest;
 import com.example.demo.models.dtos.LoginResponse;
 import com.example.demo.models.user.User;
@@ -27,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User createUserDto) throws Exception {
+    public ResponseEntity<CreateUserDto> createUser(@Valid @RequestBody CreateUserDto createUserDto) throws Exception {
         var newUser = createUserService.execute(createUserDto);
 
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
@@ -43,6 +44,6 @@ public class UserController {
 
     @GetMapping("/private")
     public ResponseEntity<String> protectedEndPoint() {
-        return ResponseEntity.ok("Autenticato com sucesso");
+        return ResponseEntity.ok("Autenticado com sucesso");
     }
 }
