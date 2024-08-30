@@ -41,11 +41,13 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/private").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/api/users").authenticated()
                         .anyRequest().permitAll()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .oauth2ResourceServer(
-                        conf -> conf.jwt(Customizer.withDefaults())
+                .oauth2ResourceServer(conf -> conf
+                        .jwt(Customizer.withDefaults())
+                        .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
                 )
                 .build();
     }

@@ -19,7 +19,7 @@ public class CreateUserService {
         this.userRepository = userRepository;
     }
 
-    public CreateUserDto execute(CreateUserDto createUserDto) throws Exception {
+    public User execute(CreateUserDto createUserDto) {
         var isConflict = userRepository.findByUsername(createUserDto.getUsername());
         
         if (isConflict.isPresent()) {
@@ -30,7 +30,6 @@ public class CreateUserService {
         newUser.setUsername(createUserDto.getUsername());
         newUser.setPassword(passwordEncoder.encode(createUserDto.getPassword()));
 
-        return createUserDto;
+        return userRepository.save(newUser);
     }
-
 }
